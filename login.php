@@ -1,5 +1,5 @@
 <?php
-include('consolelog.php');
+// include('consolelog.php');
 include('delElement.php');
 $login_valide = "admin";
 $pwd_valide = '0510800f28088e2f9c2e6df7239a9987';
@@ -17,7 +17,7 @@ if (isset($_POST['login']) && isset($_POST['pwd'])) {
     // on enregistre les paramètres de notre visiteur comme variables de session ($login et $pwd) (notez bien que l'on utilise pas le $ pour enregistrer ces variables)
     $_SESSION['login'] = $_POST['login'];
     $_SESSION['pwd'] = $_POST['pwd'];
-    console_log("Données de connexion validées !");
+
     include('intervention.php'); // envoie le contenu de cette page dans le data retourné à JQueryAjax, puis l'affiche
     }
     else {

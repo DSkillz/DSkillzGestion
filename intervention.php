@@ -1,10 +1,10 @@
 <?php
-console_log('chargement encours.php');
+// console_log('chargement encours.php');
 require("connect.php");
 ?>
 <div class="row">
   <?php
-  console_log('chargement encours.php');
+  // console_log('chargement encours.php');
   require('encours.php');
   ?>
 
@@ -94,7 +94,7 @@ require("connect.php");
     // $sql_client = new PDO($conn, "SELECT * FROM clients ORDER BY cli_id DESC LIMIT 5") or die('Erreur SQL !' . $sql_art . '<br>' . mysqli_error());
     //$nb_cli = mysqli_fetch_row($sql_client);
     try {
-      console_log('try a request with PDO');
+      // console_log('try a request with PDO');
       $req = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
       $req->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

@@ -90,9 +90,9 @@
 					pwd: pwd
 				},
 				function(data) {
-					console.log(data);
+					console.log('Success' + data);
 					$('main > div').replaceWith(data);
-					$('#myForm')[0].reset();
+					$('#loginForm').reset();
 				});
 		}
 

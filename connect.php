@@ -1,14 +1,16 @@
 <?php
-$host = 'db5007388847.hosting-data.io';
-$db = 'dbs6088556';
-$user = 'dbu398613';
-$pwd = 'Tech1337db(#-/+&1337db)';
-$conn = null;
-  try {
-    $conn = new PDO("mysql:host=$host; dbname=$db;", $user, $pwd);
-    console_log("Connected to $db at $host successfully !");
-  } catch (PDOException $e) {
-    echo "Erreur!:" . $e->getMessage() . "<br/>";
-    die();
-  }
+$host = 'localhost';
+$db = 'dskillzgestion';
+$user = 'dskillz';
+$pwd = 'root';
+
+$conn = new mysqli("localhost", "dskillz", "root", "dskillzgestion");
+
+// Check connection
+if ($conn->connect_errno) {
+  echo "Failed to connect to MySQL: " . $mysqli->connect_error;
+  exit();
+} else {
+  echo "Connection to database succes !";
+}
 ?>
