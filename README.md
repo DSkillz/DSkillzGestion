@@ -20,6 +20,6 @@ Features
 
 Credits
 -------
-* Design and development: **Digital Skillz** - http://pozhilov.com
+* Design and development: **Digital Skillz** - https://digital-skillz.tech
 * Photos used in template: **Unsplash** - http://unsplash.com
 * CDN used for a libraries: **JSdelivr** - http://jsdelivr
