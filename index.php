@@ -5,9 +5,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
-	<meta name="author" content="Sergey Pozhilov (GetTemplate.com)">
+	<meta name="author" content="DSkillz">
 
-	<title>ABCDEPANPC - Connexion</title>
+	<title>Gestion Digital Skillz - Connexion</title>
 
 	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
 
@@ -33,16 +33,14 @@
 
 <body class="home">
 	<!-- Fixed navbar -->
-	<?php include 'menu.html'; ?>
+	<?php include 'menu.php'; ?>
 	<!-- /.navbar -->
 
 	<!-- Main -->
-	<main class="container-fluid">
-		<div class="row justify-content-center" style="">
-			<h1 style="text-align: center;font-size: 30px;color: coral;">FICHE INTERVENTION: <br>Authentification </h1>
+	<main class="container-fluid d-flex flex-column">
+		<div class="row justify-content-center m-auto text-center">
+			<h2 style="color: coral; padding-bottom: 40px;">FICHE INTERVENTION:<br>Authentification</h2>
 			<div id="formDiv">
-
-
 				<form id="loginForm" method="post">
 					<!-- Email input -->
 					<div class="form-outline mb-4">
@@ -77,7 +75,7 @@
 
 	<footer id="footer" class="top-space">
 
-		<?php include 'footer.html'; ?>
+		<?php include 'footer.php'; ?>
 
 	</footer>
 
@@ -92,7 +90,7 @@
 				function(data) {
 					console.log('Success' + data);
 					$('main > div').replaceWith(data);
-					$('#loginForm').reset();
+					$('#loginForm').trigger("reset");
 				});
 		}
 

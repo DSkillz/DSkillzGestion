@@ -9,12 +9,12 @@
 			<div class="col-md-3 widget">
 				<h3 class="widget-title">Contact</h3>
 				<div class="widget-body">
-					<p>ABCDépan'PC<br>
-						10 Avenue de la République<br>
-						63118 Cébazat<br>
-						<a href="mailto:#">abcdepanpc@hotmail.fr</a><br>
+					<p>Digital Skillz<br>
+						59 boulevard Barrieu<br>
+						63130 Royat<br>
+						<a href="mailto:#">dskillz@protonmail.com</a><br>
 						<br>
-						04 73 91 06 33
+						06 59 28 18 22
 					</p>
 				</div>
 			</div>
@@ -38,7 +38,7 @@
 			<div class="col-md-6 widget">
 				<div class="widget-body">
 					<p class="text-right">
-						Copyright &copy; 2021, Abcdepan'PC
+						Copyright &copy; 2021, Digital Skillz
 					</p>
 				</div>
 			</div>

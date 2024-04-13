@@ -2,12 +2,11 @@
 // console_log('chargement encours.php');
 require("connect.php");
 ?>
-<div class="row">
-  <?php
-  // console_log('chargement encours.php');
-  require('encours.php');
-  ?>
-
+<?php
+// console_log('chargement encours.php');
+require('encours.php');
+?>
+<section class="row intervention">
   <!-- fiche Client -->
   <p>FICHE CLIENT: Création</p>
 
@@ -78,35 +77,45 @@ require("connect.php");
   <p class="tagline"><b style="font-size:16px">FICHE INTERVENTION: Création</b></p>
   <p>
     <script type="text/javascript">
-      function verification() {
+      $(document).ready(function() {
 
+        $("#formclients").submit(function() {
 
-        if (document.formclients.nom.value == "") {
-          alert("error");
-          document.formclients.nom.focus();
+          if ($("#nom")[0].value == "") {
+            alert("Le champ 'nom' ne peut être vide.");
+            document.getElementById("nom").focus();
+          }
+
+          $.ajax({
+            url: 'client_add.php',
+            type: 'POST',
+            data: {
+              civ: $("#civ")[0].value,
+              nom: $("#nom")[0].value,
+              tel1: $("#tel1")[0].value,
+              tel2: $("#tel2")[0].value,
+              contact: $("#contact")[0].value,
+              adresse: $("#adresse")[0].value,
+              cp: $("#cp")[0].value,
+              ville: $("#ville")[0].value
+            },
+            success: function(msg) {
+              setTimeout(function() {
+                $("main").load("intervention_liste.php");
+              }, 10000);
+            },
+            error: function(e) {
+              alert("error:" + e);
+            }
+          });
           return false;
-        }
-        return true;
-      }
+        });
+      });
     </script>
 
     <?php
-    // $sql_client = new PDO($conn, "SELECT * FROM clients ORDER BY cli_id DESC LIMIT 5") or die('Erreur SQL !' . $sql_art . '<br>' . mysqli_error());
-    //$nb_cli = mysqli_fetch_row($sql_client);
-    try {
-      // console_log('try a request with PDO');
-      $req = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
-      $req->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-      $req->beginTransaction();
-
-      $sql = "SELECT * FROM clients ORDER BY cli_id DESC LIMIT 50";
-      $req->exec($sql);
-      echo 'Affichage de tous les clients';
-    } catch (PDOException $e) {
-      $req->rollBack();
-      echo "Erreur : " . $e->getMessage();
-    }
+    $req = mysqli_query($conn, "SELECT * FROM clients ORDER BY cli_id DESC LIMIT 5") or die('Erreur SQL !<br>: ' . mysqli_error());
+    $nb_cli = mysqli_fetch_row($req);
     ?>
   <form name="formInter" id="formInter" method="post" action="intervention_add.php" enctype="multipart/form-data" onSubmit="return verification2()">
 
@@ -123,7 +132,7 @@ require("connect.php");
       </tr>
       <tr>
         <td width="100" class="client_td">Intervenant *</td>
-        <td width="350" class="client_td2"><SELECT name="intervenant" style="width:100px">
+        <td width="350" class="client_td2"><SELECT id="intervenant" name="intervenant" style="width:100px">
             <OPTION VALUE=""></OPTION>
             <OPTION VALUE="Nicolas">Nicolas</OPTION>
             <OPTION VALUE="Matthias">Matthias</OPTION>
@@ -139,7 +148,7 @@ require("connect.php");
           &nbsp;&nbsp;
           <SELECT name="client" id="clientID" style="width:240px">
             <?php
-            while ($nb_cli = mysqli_fetch_assoc($sql_client)) {
+            while ($nb_cli = mysqli_fetch_assoc($req)) {
               echo '<OPTION VALUE="' . $nb_cli['cli_id'] . '">' . htmlentities($nb_cli['cli_nom'], ENT_QUOTES, 'utf-8', true) . ' | ' . $nb_cli['cli_tel1'] . ' | ' . $nb_cli['cli_tel2'] . ' | ' . $nb_cli['cli_tel3'] . '</OPTION>';
             }
             ?>
@@ -271,8 +280,7 @@ require("connect.php");
   </form>
   </p>
   <!-- fin fiche client -->
-
-</div>
+</section>
 
 <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 <script src="assets/js/jquery.js"></script>
@@ -285,7 +293,7 @@ require("connect.php");
 <script src="/assets/js/ExpandSelect.js"></script>
 
 <!-- AJAX -->
-<script>
+<script type="text/javascript">
   function afficheClient(txtcli) {
     var txtcli;
     //alert(txtcli);

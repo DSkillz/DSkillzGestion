@@ -5,4 +5,4 @@ function console_log($data, $add_script_tags = false)
 	$command = '<script>' . $command . '</script>';
 	echo $command;
 }
-echo "banzaiiiiiiiiiiiiiii !!!"
+echo "banzaiiiiiiiiiiiiiii !!!";

@@ -1,5 +1,16 @@
-main {
-	color: white;
+body {
+	background: #181015 url('../images/bg_header.jpg') no-repeat;
+	background-size: cover;
+}
+
+.topsection {
+	margin-top: 125px;
+}
+
+.topsection button {
+	background-color: transparent;
+	border: none;
+	text-decoration: underline;
 }
 
 /* Header */
@@ -71,17 +82,12 @@ main {
 
 main {
 	min-height: 550px;
-	background: #181015 url('../images/bg_header.jpg') no-repeat;
-	background-size: cover;
+	color: white;
 }
 
-main > div.row {
+main>div.row {
 	padding-top: 123px;
 	min-height: 482px;
-}
-
-main h1 {
-	margin-bottom: 40px;
 }
 
 @media (max-width: 767px) {
@@ -110,9 +116,15 @@ a {
 	color: #97ff00;
 }
 
+ul {
+	list-style-type: none;
+}
+
 .interv-list button {
 	width: 110px !important;
 }
+
+#encours {}
 
 .myButton {
 	box-shadow: inset 0px 1px 0px 0px #ffffff;
@@ -221,33 +233,35 @@ tbody>tr:last-child>td {
 }
 
 .animated {
-    -webkit-transition: -webkit-transform 200ms linear;
+	-webkit-transition: -webkit-transform 200ms linear;
 	-webkit-transition: all 0.5s ease-out;
 	-moz-transition: all 0.5s ease-out;
 	-o-transition: all 0.54s ease-out;
 	transition: all 0.5s ease-out;
 }
+
 .slideDown {
-    -webkit-transform: translateY(0%);
-        -ms-transform: translateY(0%);
-            transform: translateY(0%);
+	-webkit-transform: translateY(0%);
+	-ms-transform: translateY(0%);
+	transform: translateY(0%);
 }
+
 .slideUp {
-    -webkit-transform: translateY(-100%);
-        -ms-transform: translateY(-100%);
-            transform: translateY(-100%);
+	-webkit-transform: translateY(-100%);
+	-ms-transform: translateY(-100%);
+	transform: translateY(-100%);
 }
 
 .dropdown {
-    text-align: center;
+	text-align: center;
 }
 
 .dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0;
- }
+	display: block;
+	margin-top: 0;
+}
 
- #formDiv {
+#formDiv {
 	max-width: 360px;
 }
 
